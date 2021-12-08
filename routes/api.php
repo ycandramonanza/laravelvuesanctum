@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::prefix(['prefix' => 'sign'], function() {
+    
+})
 
 Route::group(['prefix' => 'product'], function () {
     Route::get('/', [ProductsController::class, 'index']);

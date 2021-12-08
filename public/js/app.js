@@ -6361,7 +6361,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 data = _context3.sent;
-                console.log(data);
 
                 if (data.status) {
                   _this2.$router.push({
@@ -6371,7 +6370,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this2.product = data.data;
                 }
 
-              case 5:
+              case 4:
               case "end":
                 return _context3.stop();
             }

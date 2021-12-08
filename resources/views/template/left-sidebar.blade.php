@@ -23,7 +23,7 @@
                 <li class="nav-item menu-open">
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <router-link to="/data-product" class="nav-link">
+                            <router-link to="/home" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Home</p>
                             </router-link>

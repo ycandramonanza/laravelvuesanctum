@@ -91,7 +91,6 @@ export default {
         },
           async submitPost(id) {
             const data = await axios.patch(`/api/product/update/${id}`, this.menu)
-            console.log(data);
             if (data.status) {
                 this.$router.push({path:'/product'})
                 this.product = data.data
