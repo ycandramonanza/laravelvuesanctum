@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <Sidebar />
         <div class="card">
           <div class="card-header">Create Product</div>
           <form @submit.prevent="addProduct">
@@ -68,7 +69,11 @@
 </template>
 
 <script>
+import Sidebar from '../sidebar/Sidebar.vue';
 export default {
+   components: {
+     Sidebar
+  },
  data(){
       return{
             product_name: '',
@@ -76,6 +81,14 @@ export default {
             addres_seller: '',
             price: '',
             desc: '',
+           loggedIn: localStorage.getItem('loggedIn'),
+           token: localStorage.getItem('token'),
+
+      }
+  },
+  mounted(){
+     if (!this.loggedIn) {
+          return this.$router.push({name: 'login'})
       }
   },
   methods: { 

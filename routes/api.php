@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix(['prefix' => 'sign'], function() {
     
-})
+});
+
+
+Route::post('login', [AuthController::class, 'login']);
+
+Route::get('logoutfix', 'AuthController@logoutfix');
 
 Route::group(['prefix' => 'product'], function () {
     Route::get('/', [ProductsController::class, 'index']);

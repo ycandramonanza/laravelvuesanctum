@@ -73,9 +73,14 @@ export default {
         return{
             id : '',
             menu: {},
+            loggedIn: localStorage.getItem('loggedIn'),
+            token: localStorage.getItem('token')
         }
     },
      mounted: async function() {
+        if (!this.loggedIn) {
+            return this.$router.push({name: 'login'})
+        }
         this.id = this.$route.params.id;
         await this.productEdit(this.$route.params.id)
     },

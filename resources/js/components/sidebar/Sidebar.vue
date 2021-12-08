@@ -1,9 +1,11 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<template>
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">Laravuespa</span>
-    </a>
-
+    <div class="brand text-center mt-3">
+        <router-link to="/home">
+           <h4 class="brand-text font-weight-light">Laravuespa</h4>
+        </router-link>
+    </div>
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -40,6 +42,11 @@
                                 <p>Create Product</p>
                             </router-link>
                         </li>
+                         <li class="nav-item list-group-item text-dark text-decoration-none" style="cursor:pointer" @click="logout">
+                             
+                                <i class="far fa-circle nav-icon"></i>
+                                Logout
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -48,3 +55,41 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+</template>
+<script>
+export default {
+        data(){
+            return {
+                loggedIn: null,
+                token : null
+            }
+        },
+        methods: {
+            getLoggedin(){
+                this.loggedIn = localStorage.getItem("loggedIn")
+                this.token = localStorage.getItem("token")
+            },
+
+            logout() {
+                axios.get('/api/logoutfix')
+                .then(() => {
+                    //remove localStorage
+                    localStorage.removeItem("loggedIn") 
+                    localStorage.removeItem("token")      
+
+
+                    //redirect
+                    return this.$router.push({ name: 'login' })
+                })
+            }
+        },
+        watch: {
+            $route: {
+                immediate: true,
+                handler(){
+                    this.getLoggedin()
+                }
+            }
+        },
+    }
+</script>

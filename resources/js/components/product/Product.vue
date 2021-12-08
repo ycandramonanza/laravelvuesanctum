@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <Sidebar />
         <div class="card">
           <div class="card-header">Data Product</div>
-
           <div class="card-body">
             <table class="table">
               <thead>
@@ -43,13 +43,22 @@
 </template>
 
 <script>
+import Sidebar from '../sidebar/Sidebar.vue';
 export default {
+  components: {
+     Sidebar
+  },
     data(){
       return{
-          products : {}
+          products : {},
+          loggedIn: localStorage.getItem('loggedIn'),
+          token: localStorage.getItem('token'),
       }
     },
      mounted(){
+       if (!this.loggedIn) {
+          return this.$router.push({name: 'login'})
+       }
       this.getDataProducts();
     },
     methods: {
