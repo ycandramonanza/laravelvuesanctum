@@ -42,6 +42,12 @@
                                 <p>Create Product</p>
                             </router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link to="/conext" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Component Next</p>
+                            </router-link>
+                        </li>
                          <li class="nav-item list-group-item text-dark text-decoration-none" style="cursor:pointer" @click="logout">
                              
                                 <i class="far fa-circle nav-icon"></i>

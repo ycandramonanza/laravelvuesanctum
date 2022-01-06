@@ -20,7 +20,8 @@ let routes = [
     { path: '/', name: 'home', component: require('./components/Home.vue').default },
     { path: '/product', name: 'product', component: require('./components/product/Product.vue').default },
     { path: '/create', name: 'create', component: require('./components/product/Create.vue').default },
-    { path: '/edit/:id', name: 'edit', component: require('./components/product/Edit.vue').default }
+    { path: '/edit/:id', name: 'edit', component: require('./components/product/Edit.vue').default },
+    { path: '/conext', name: 'conext', component: require('./components/product/Conext.vue').default }
 ]
 
 

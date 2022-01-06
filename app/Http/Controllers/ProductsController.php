@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Products;
+use App\Models\Multiple;
 use Illuminate\Http\Request;
 
 
@@ -105,5 +106,15 @@ class ProductsController extends Controller
             $product->delete();
             return response()->json(['status' => true]);
         }
+    }
+
+    public function conext(Request $request){
+        $multiple = new Multiple([
+            'name'  => $request->input('name'),
+            'phone'  => $request->input('phone'),
+        ]);
+        $multiple->save();
+
+        return response()->json('The product successfully added');
     }
 }
